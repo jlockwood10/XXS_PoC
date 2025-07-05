@@ -8,7 +8,7 @@ Clone the Repository:
 
 Install Dependencies:
 
-npm install express body-parser
+    npm install express body-parser
 
 Configure the Host:
 
