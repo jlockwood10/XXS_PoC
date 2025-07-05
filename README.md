@@ -44,14 +44,14 @@ Step 3: Using the XSS Detector
 
 Step 4: Using the XSS Payload
 
-    Open the XSS Payload:
+ Open the XSS Payload:
         Open xss_payload.html in a web browser.
 
-    Interact with the Form:
+ Interact with the Form:
         Fill out the login form with some sample data.
         Observe the browser's console and the server's terminal for captured data.
 
-    Analyze the Captured Data:
+ Analyze the Captured Data:
         The payload will capture various types of data, including user agent, screen resolution, plugins, cookies, and more.
         This data will be sent to the server and logged in the terminal.
 
